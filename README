@@ -1,0 +1,22 @@
+Note:
+1. start de.legitrust.Applcation.java in IDE or at project root directory execute mvn spring-boot:run
+2. There is no database, all dao invoke will do nothing or return empty list.
+3. curl -s "http://localhost:8080/cryptocurrency/20171201123030/20171201123030
+   curl -s "http://localhost:8080/cryptocurrency/Bitcoin
+
+finish:
+1. ScheduledTask will periodically save CryptoCurrencies into database, "fixedRate" can be configured in /resources/application.yml.
+2. There is a sql to define creating a cryptocurrency table, if cryptocurrencies and current time are saved in database.
+3. In controller: 1. getDataHistrory, 2. getDataByCurrency for task 3 point a and b.
+
+Not finish:
+1. Task 3 point c, I don't understand this task, which key should be added on url and send the request? 
+   I think, firstly these informations(1h, 24h, 7d) should also be saved in database.
+2. Unitest, I can not inject my mock dao for service and controller, so I return always empty list.
+   These unittests take me a lot of time.
+   
+Enhancement:
+1. There should add Log system.
+2. There should have exception handle.
+3. In the database table there is no primary key, this is very bad for search, 
+   we can use "id" from response json as primary key.
